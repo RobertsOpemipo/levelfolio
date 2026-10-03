@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: levelfolio-postgres
+    environment:
+      POSTGRES_USER: archive_user
+      POSTGRES_PASSWORD: archive_password
+      POSTGRES_DB: levelfolio_dev
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: levelfolio-redis
+    ports:
+      - "6380:6379"  # Bound to 6380 on host to avoid clashing with your doc_redis (6379)
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: levelfolio-s3
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3
+      - DEFAULT_REGION=us-east-1
+    volumes:
+      - s3data:/var/lib/localstack
+
+volumes:
+  pgdata:
+  s3data:
