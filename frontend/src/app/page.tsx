@@ -152,7 +152,7 @@ export default function LandingPage() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface)] border border-[var(--line)] shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
               <span className="font-label text-xs uppercase tracking-wider font-bold text-[var(--accent)]">
-                The Quiet LMS // Gamified Corporate Archive
+                The Best LMS
               </span>
             </div>
 
